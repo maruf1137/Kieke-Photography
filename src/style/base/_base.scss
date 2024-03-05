@@ -30,6 +30,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -37,6 +38,7 @@ body {
   color: #333;
   overflow-x: hidden;
   font-family: $font-secondary;
+  overflow-x: hidden;
 }
 
 @layer utilities {

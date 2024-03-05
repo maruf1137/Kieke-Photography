@@ -1,0 +1,231 @@
+@import "./base/variables.scss";
+@import "./base/base";
+@import "./base/typography.scss";
+
+.hero-bottom .item:not(:last-child) {
+  border-right: 2px solid #fff;
+}
+
+.line {
+  width: 2px;
+  background-color: #fff;
+  height: 40px;
+}
+
+// mbl navbar
+.main-nav {
+  @media only screen and (max-width: 992px) {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 60%;
+    height: 100vh;
+    background-color: #fff;
+    padding: 60px;
+    box-shadow: rgba(108, 108, 108, 0.24) 0px 3px 8px;
+    transform: translateX(100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s;
+
+    .navbar-list {
+      display: flex;
+      flex-direction: column;
+
+      a {
+        font-size: 24px;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+.show-nev {
+  transform: translateX(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+.hero {
+  .content {
+    h1 {
+      position: relative;
+
+      &::after {
+        content: "";
+        display: block;
+        height: 25px;
+        width: 156px;
+        background-color: #8a47f6;
+        border-radius: 100px;
+        position: absolute;
+        bottom: 35px;
+        right: 40%;
+        transform: translateX(50%);
+
+        @media only screen and (max-width: $laptop-land) {
+          display: none;
+        }
+      }
+    }
+  }
+
+  // .hero-slider {
+  //   position: relative;
+
+  //   &::before {
+  //     content: "";
+  //     display: block;
+  //     height: 100%;
+  //     width: 50%;
+  //     background-color: #fff;
+  //     position: absolute;
+  //     top: 0;
+  //     left: -100%;
+  //     z-index: 10;
+  //   }
+  // }
+
+  .image-area {
+    .swiper-pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin-top: 40px;
+
+      &-bullet {
+        height: 15px;
+        width: 15px;
+        display: block;
+        // background: $color-primary;
+        background: #e1e1e1;
+        border-radius: 50%;
+        opacity: 1;
+        transition: all 0.3s;
+        cursor: pointer;
+      }
+
+      &-bullet-active {
+        background: $color-primary;
+        height: 20px;
+        width: 20px;
+      }
+    }
+  }
+}
+
+.about {
+  .content {
+    .sub-title {
+      // display: flex;
+      // align-items: center;
+      // gap: 10px;
+
+      .line {
+        height: 1px;
+        width: 19px;
+        background-color: #8a47f665;
+        display: block;
+      }
+    }
+  }
+}
+
+.portfolio {
+  &__nav {
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 0 15px 0;
+    // box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+
+  &__items {
+    img {
+      object-fit: cover;
+
+      @media only screen and (max-width: $tab-port) {
+        height: 255px;
+        width: 100%;
+      }
+    }
+  }
+
+  @media only screen and (min-width: $tab-port) {
+    &__item:nth-child(1) {
+      grid-column: span 3 / span 3;
+      grid-row: span 2 / span 2;
+    }
+    &__item:nth-child(2) {
+      grid-column: span 6 / span 6;
+      grid-row: span 1 / span 1;
+    }
+    &__item:nth-child(3) {
+      grid-column: span 3 / span 3;
+      grid-row: span 1 / span 1;
+    }
+    &__item:nth-child(4) {
+      grid-column: span 3 / span 3;
+      grid-row: span 1 / span 1;
+      grid-column-start: 4;
+    }
+    &__item:nth-child(5) {
+      grid-column: span 6 / span 6;
+      grid-row: span 1 / span 1;
+    }
+    &__item:nth-child(6) {
+      grid-column: span 5 / span 5;
+      grid-row: span 1 / span 1;
+    }
+    &__item:nth-child(7) {
+      grid-column: span 4 / span 4;
+      grid-row: span 1 / span 1;
+    }
+    &__item:nth-child(8) {
+      grid-column: span 3 / span 3;
+      grid-row: span 2 / span 2;
+    }
+    &__item:nth-child(9) {
+      grid-column: span 3 / span 3;
+      grid-row: span 1 / span 1;
+    }
+    &__item:nth-child(10) {
+      grid-column: span 6 / span 6;
+      grid-row: span 1 / span 1;
+    }
+  }
+
+  .circle-1 {
+    top: -100px;
+    right: -15%;
+  }
+  .circle-2 {
+    bottom: -200px;
+    left: -15%;
+  }
+}
+
+.circle {
+  position: absolute;
+  z-index: -1;
+}
+
+.price {
+  &__item {
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 0 15px 0;
+  }
+
+  .circle-1 {
+    bottom: -300px;
+    right: -15%;
+  }
+}
+
+.contact {
+  .circle-2 {
+    top: -300px;
+    bottom: auto;
+    left: -30%;
+  }
+}

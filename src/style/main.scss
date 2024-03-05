@@ -49,7 +49,18 @@
   visibility: visible;
 }
 
+.nav-sticky {
+  background-color: $color-white;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,
+    rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  z-index: 100;
+}
+
 .hero {
+  background-image: url("/images/hero-bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+
   .content {
     h1 {
       position: relative;
@@ -72,22 +83,6 @@
       }
     }
   }
-
-  // .hero-slider {
-  //   position: relative;
-
-  //   &::before {
-  //     content: "";
-  //     display: block;
-  //     height: 100%;
-  //     width: 50%;
-  //     background-color: #fff;
-  //     position: absolute;
-  //     top: 0;
-  //     left: -100%;
-  //     z-index: 10;
-  //   }
-  // }
 
   .image-area {
     .swiper-pagination {
@@ -113,6 +108,19 @@
         background: $color-primary;
         height: 20px;
         width: 20px;
+      }
+    }
+
+    .hero-slider {
+      .swiper-slide {
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s;
+      }
+      .swiper-slide-next,
+      .swiper-slide-active {
+        opacity: 1;
+        visibility: visible;
       }
     }
   }

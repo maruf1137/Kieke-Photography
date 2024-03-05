@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const navData = [
   {
@@ -32,6 +32,7 @@ const navData = [
 
 const Navbar = () => {
   const [mblNav, setMblNav] = useState<boolean>(false);
+  const [navSticky, setNavSticky] = useState<boolean>(false);
 
   const showMblNav = (): void => {
     setMblNav(true);
@@ -39,9 +40,25 @@ const Navbar = () => {
   const hideMblNav = (): void => {
     setMblNav(false);
   };
+
+  useEffect(() => {
+    if (window) {
+      window.addEventListener("scroll", (e) => {
+        if (window.scrollY > 30) {
+          setNavSticky(true);
+        } else {
+          setNavSticky(false);
+        }
+      });
+    }
+  }, []);
+
   return (
-    <div className="navbar z-10 fixed top-0 left-0 w-full bg-transparent">
-      <div className="navbar-wrapper flex justify-between items-center gap-2 py-3 px-10 max-w-[1400px] mx-auto ">
+    <div
+      className={`navbar ${
+        navSticky && "nav-sticky"
+      } z-10 fixed top-0 left-0 w-full bg-transparent`}>
+      <div className="navbar-wrapper flex justify-between items-center gap-2 py-3 px-4 sm:px-10 max-w-[1400px] mx-auto ">
         <Link href="/">
           <img src="images/logo.png" alt="LOGO" />
         </Link>

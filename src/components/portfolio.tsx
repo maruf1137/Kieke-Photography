@@ -105,7 +105,7 @@ const Portfolio = () => {
           {activeItemData.map(({ img }, i) => {
             return (
               <figure
-                className="portfolio__item"
+                className="portfolio__item cursor-pointer"
                 key={i}
                 onClick={() => handlePortfolioPopup(img)}>
                 <img

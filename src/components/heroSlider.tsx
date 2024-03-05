@@ -2,18 +2,27 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 // import { Navigation, Pagination } from "swiper";
-import { Pagination } from "swiper/modules";
+import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 
-const sliderData = ["/images/hero-item-1.png", "/images/hero-item-2.png"];
+const sliderData = [
+  "/images/hero-item-1.png",
+  "/images/hero-item-2.png",
+  "/images/hero-item-1.png",
+  "/images/hero-item-2.png",
+];
 
 const HeroSlider = () => {
   return (
     <div>
       <Swiper
-        modules={[Pagination]}
+        modules={[Pagination, Autoplay]}
         spaceBetween={30}
         slidesPerView={1}
+        autoplay={{
+          delay: 5000,
+          disableOnInteraction: false,
+        }}
         pagination={{
           clickable: true,
         }}

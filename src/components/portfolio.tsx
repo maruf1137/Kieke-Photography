@@ -55,6 +55,8 @@ const itemData = [
 const Portfolio = () => {
   const [activeTab, setActiveTab] = useState("All");
   const [activeItemData, setActiveItemData] = useState(itemData);
+  const [isPopup, setIsPopup] = useState(false);
+  const [popupImg, setpopupImg] = useState("");
 
   const handleFilterItem = (btn: any) => {
     setActiveTab(btn);
@@ -64,6 +66,11 @@ const Portfolio = () => {
     } else {
       setActiveItemData(newData);
     }
+  };
+
+  const handlePortfolioPopup = (img: any) => {
+    setIsPopup(true);
+    setpopupImg(img);
   };
 
   //   useEffect(() => {
@@ -97,7 +104,10 @@ const Portfolio = () => {
         <div className="portfolio__items grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 md:grid-rows-4 gap-6 md:h-[1095px]">
           {activeItemData.map(({ img }, i) => {
             return (
-              <figure className="portfolio__item" key={i}>
+              <figure
+                className="portfolio__item"
+                key={i}
+                onClick={() => handlePortfolioPopup(img)}>
                 <img
                   src={img}
                   alt=""
@@ -110,6 +120,23 @@ const Portfolio = () => {
       </div>
       <img src="/images/circle-1.png" alt="" className="circle circle-1" />
       <img src="/images/circle-2.png" alt="" className="circle circle-2" />
+
+      <div
+        className={`${
+          isPopup && "popup-show"
+        } popup fixed top-0 left-0 z-[101] flex items-center justify-center h-screen w-full`}>
+        <div
+          className="overlay fixed top-0 left-0 z-[1] bg-[#000000bb] h-screen w-full"
+          onClick={() => setIsPopup(false)}></div>
+        <button
+          className="absolute top-2 right-2 z-10"
+          onClick={() => setIsPopup(false)}>
+          <svg className="icon !fill-white !h-10 !w-10">
+            <use xlinkHref="/icons.svg#icon-clear"></use>
+          </svg>
+        </button>
+        <img src={popupImg} alt="" className="relative z-10" />
+      </div>
     </div>
   );
 };

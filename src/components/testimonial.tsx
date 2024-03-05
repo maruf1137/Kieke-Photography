@@ -2,7 +2,7 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 // import { Navigation, Pagination } from "swiper";
-import { Navigation } from "swiper/modules";
+import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 
 const Testimonial = () => {
@@ -10,8 +10,13 @@ const Testimonial = () => {
     <div className="testimonial relative bg-[#8a47f613] about">
       <div className="hero-wrapper max-w-7xl mx-auto px-2 sm:px-3 py-14 overflow-hidden">
         <Swiper
-          modules={[Navigation]}
+          modules={[Navigation, Autoplay]}
           spaceBetween={30}
+          autoplay={{
+            delay: 5000,
+            disableOnInteraction: false,
+          }}
+          loop
           slidesPerView={1}
           navigation={{
             nextEl: ".testimonial-swiper-button-next",
